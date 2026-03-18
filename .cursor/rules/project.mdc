@@ -1,0 +1,75 @@
+### What is this project?
+
+This project is based on the **Dokkan Battle** game.
+
+It allows users to calculate the defensive stats of a card and see the amount of damage the card would take against several bosses.
+The results are displayed using a chart.
+
+### Why this project?
+
+The goal of this project is to help players better understand the defensive capabilities of a card and estimate the damage it can take against different bosses.
+
+### How it works
+
+The user fills out a form by entering several card-related values such as defense, leader skill, links, etc.
+
+Once the form is submitted, the application displays:
+
+- The **total defense**
+- The **total damage reduction**
+- Whether the card **has guard**
+
+A chart is also displayed above the result box.
+This chart shows the **damage taken by the card against different bosses**.
+
+### Project details
+
+The project uses the following technologies:
+
+- **Angular 21+**
+- **Signal Forms**
+- **ApexCharts** for chart visualization
+- **Tailwind CSS** for styling
+
+## Architecture
+
+The project follows the **Feature-Sliced Design (FSD)** architecture.
+
+## Structure
+
+For now, the application contains only **one page: the Home page**.
+
+# Form
+
+The page displays a form with the following inputs:
+
+- **Card class**: `Extreme` or `Super` (required)
+- **Card type**: `TEQ`, `INT`, `PHY`, `STR`, or `AGL` (required)
+- **Base defense**: integer, required, cannot be below 0
+- **Leader skill**: integer, required. Possible values:
+  - `220%` → multiplier `5.4`
+  - `200%` → multiplier `5`
+  - `170%` → multiplier `4.4`
+  - `150%` → multiplier `4`
+
+- **Links**: integer, required, cannot be below 0
+- **Additional passive**: integer, required, cannot be below 0
+- **Multiplicative passive**: integer, required, cannot be below 0
+- **Defense after super attack**: integer, required, cannot be below 0
+- **Has guard?**: boolean, required
+- **Damage reduction**: integer, required, cannot be below 0
+
+When the form is submitted, a box appears showing:
+
+- `Total defense`
+- `Total reduction`
+- `Has guard: true / false`
+
+# Chart
+
+After the form is submitted, a **chart** is displayed above the result box.
+
+- The **X-axis** displays different bosses and their attack values.
+- The **Y-axis** displays the **total damage taken by the card**.
+
+The chart is implemented using **ApexCharts**.

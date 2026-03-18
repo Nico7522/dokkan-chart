@@ -1,0 +1,175 @@
+<form (submit)="onSubmit($event)" class="flex flex-col gap-5">
+    <fieldset class="rounded-lg border border-gray-200 p-4">
+        <legend class="px-2 text-sm font-semibold text-gray-600">
+            Card classification
+        </legend>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="card-class" class="text-sm font-medium text-gray-900">
+                Card class
+            </label>
+            <select id="card-class"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.cardClass">
+                <option value="" disabled>Select class</option>
+                <option value="Extreme">Extreme</option>
+                <option value="Super">Super</option>
+            </select>
+            @if (cardStatsForm.cardClass().touched() && cardStatsForm.cardClass().invalid()) {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.cardClass().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="card-type" class="text-sm font-medium text-gray-900">
+                Card type
+            </label>
+            <select id="card-type"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.cardType">
+                <option value="" disabled>Select type</option>
+                <option value="TEQ">TEQ</option>
+                <option value="INT">INT</option>
+                <option value="PHY">PHY</option>
+                <option value="STR">STR</option>
+                <option value="AGL">AGL</option>
+            </select>
+            @if (cardStatsForm.cardType().touched() && cardStatsForm.cardType().invalid()) {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.cardType().errors()[0].message }}
+            </p>
+            }
+        </div>
+    </fieldset>
+
+    <fieldset class="rounded-lg border border-gray-200 p-4">
+        <legend class="px-2 text-sm font-semibold text-gray-600">
+            Defense stats
+        </legend>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="base-defense" class="text-sm font-medium text-gray-900">
+                Base defense
+            </label>
+            <input id="base-defense" type="number"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.baseDefense" />
+            @if (cardStatsForm.baseDefense().touched() && cardStatsForm.baseDefense().invalid()) {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.baseDefense().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="leader-skill" class="text-sm font-medium text-gray-900">
+                Leader skill
+            </label>
+            <select id="leader-skill"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.leaderSkill">
+                <option value="" disabled>Select leader skill</option>
+                @for (opt of leaderSkillOptions; track opt.value) {
+                <option [value]="opt.value.toString()">{{ opt.label }}</option>
+                }
+            </select>
+            @if (cardStatsForm.leaderSkill().touched() && cardStatsForm.leaderSkill().invalid()) {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.leaderSkill().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="links" class="text-sm font-medium text-gray-900">
+                Links
+            </label>
+            <input id="links" type="number"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.links" />
+            @if (cardStatsForm.links().touched() && cardStatsForm.links().invalid()) {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.links().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="additional-passive" class="text-sm font-medium text-gray-900">
+                Additional passive
+            </label>
+            <input id="additional-passive" type="number"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.additionalPassive" />
+            @if (cardStatsForm.additionalPassive().touched() && cardStatsForm.additionalPassive().invalid()) {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.additionalPassive().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="multiplicative-passive" class="text-sm font-medium text-gray-900">
+                Multiplicative passive
+            </label>
+            <input id="multiplicative-passive" type="number"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.multiplicativePassive" />
+            @if (cardStatsForm.multiplicativePassive().touched() && cardStatsForm.multiplicativePassive().invalid())
+            {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.multiplicativePassive().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="defense-after-super" class="text-sm font-medium text-gray-900">
+                Defense after super attack
+            </label>
+            <input id="defense-after-super" type="number"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.defenseAfterSuper" />
+            @if (cardStatsForm.defenseAfterSuper().touched() && cardStatsForm.defenseAfterSuper().invalid()) {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.defenseAfterSuper().errors()[0].message }}
+            </p>
+            }
+        </div>
+    </fieldset>
+
+    <fieldset class="rounded-lg border border-gray-200 p-4">
+        <legend class="px-2 text-sm font-semibold text-gray-600">
+            Guard and reduction
+        </legend>
+
+        <div class="mb-4 flex flex-row items-center gap-2 last:mb-0">
+            <input id="has-guard" type="checkbox" class="h-5 w-5" [formField]="cardStatsForm.hasGuard" />
+            <label for="has-guard" class="text-sm font-medium text-gray-900">
+                Has guard?
+            </label>
+        </div>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="damage-reduction" class="text-sm font-medium text-gray-900">
+                Damage reduction
+            </label>
+            <input id="damage-reduction" type="number"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.damageReduction" />
+            @if (cardStatsForm.damageReduction().touched() && cardStatsForm.damageReduction().invalid()) {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.damageReduction().errors()[0].message }}
+            </p>
+            }
+        </div>
+    </fieldset>
+
+    <button type="submit"
+        class="rounded-lg bg-blue-600 px-5 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+        [disabled]="cardStatsForm().invalid()">
+        Calculate
+    </button>
+</form>

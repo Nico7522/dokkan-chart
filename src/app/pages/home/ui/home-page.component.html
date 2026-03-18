@@ -1,0 +1,41 @@
+<section class="mx-auto max-w-2xl px-6 py-6" aria-labelledby="card-stats-heading">
+  <h1 id="card-stats-heading" class="mb-2 text-2xl font-semibold text-gray-900">
+    Card Defense Calculator
+  </h1>
+  <p class="mb-6 text-sm text-gray-600">
+    Enter your card stats to calculate total defense and damage reduction.
+  </p>
+
+  <app-stat-form (cardStats)="handleStats($event)" />
+
+  @if (calculatedCardStats(); as stats) {
+  <div class="mt-6 rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm">
+    <h2 class="mb-3 text-lg font-semibold text-gray-900">
+      Calculated Card Stats
+    </h2>
+    <dl class="flex flex-col gap-2">
+      <div class="flex justify-between">
+        <dt class="text-sm font-medium text-gray-600">Total defense</dt>
+        <dd class="text-sm font-semibold text-gray-900">
+          {{ stats.defense | number }}
+        </dd>
+      </div>
+      @if (stats.reduction !== null) {
+      <div class="flex justify-between">
+        <dt class="text-sm font-medium text-gray-600">Total reduction</dt>
+        <dd class="text-sm font-semibold text-gray-900">
+          {{ stats.reduction }}%
+        </dd>
+      </div>
+      }
+      <div class="flex justify-between">
+        <dt class="text-sm font-medium text-gray-600">Has guard</dt>
+        <dd class="text-sm font-semibold text-gray-900">
+          {{ stats.hasGuard ? 'Yes' : 'No' }}
+        </dd>
+      </div>
+    </dl>
+  </div>
+  }
+</section>
+<ng-container #chart />
