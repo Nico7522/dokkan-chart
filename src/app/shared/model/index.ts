@@ -1,1 +1,1 @@
-export * from './calculated-card-stats';
+export * from './card-stat-info';

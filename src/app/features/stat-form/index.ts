@@ -1,2 +1,2 @@
 export * from './ui/stat-form';
-export * from '../../shared/model/calculated-card-stats';
+export * from '../../shared/model/card-stat-info';

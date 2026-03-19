@@ -1,8 +1,4 @@
-/** Card class in Dokkan Battle */
-export type CardClass = 'Extreme' | 'Super';
-
-/** Card type (element) in Dokkan Battle */
-export type CardType = 'TEQ' | 'INT' | 'PHY' | 'STR' | 'AGL';
+import { CardClass, CardType } from '../../../shared/model';
 
 /** Leader skill multiplier - maps from percentage to multiplier */
 export const LEADER_SKILL_OPTIONS = [
@@ -16,8 +12,8 @@ export type LeaderSkillMultiplier = (typeof LEADER_SKILL_OPTIONS)[number]['value
 
 /** Form model for card defense calculation */
 export interface CardStatsFormModel {
-  cardClass: CardClass | '';
-  cardType: CardType | '';
+  cardClass: CardClass;
+  cardType: CardType;
   baseDefense: number | null;
   /** Leader skill multiplier as string (select value); empty when not selected */
   leaderSkill: string;
@@ -29,9 +25,10 @@ export interface CardStatsFormModel {
   damageReduction: number | null;
 }
 
+/** Model for initialize the form */
 export const INITIAL_CARD_STATS: CardStatsFormModel = {
-  cardClass: '',
-  cardType: '',
+  cardClass: 'Extreme',
+  cardType: 'AGL',
   baseDefense: null,
   leaderSkill: '',
   links: null,

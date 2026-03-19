@@ -2,7 +2,8 @@ import { Component, computed, input, viewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration, ChartData, Plugin } from 'chart.js';
 import { getColorsByValue } from '../lib/get-color-by-value';
-import { CalculedCardStats } from '../../../shared/model';
+import { CardStatInfo } from '../../../shared/model';
+import { calculDamageTaken } from '../lib/calcul-damage-taken';
 
 @Component({
   selector: 'app-stat-chart',
@@ -11,9 +12,21 @@ import { CalculedCardStats } from '../../../shared/model';
   styleUrl: './stat-chart.css',
 })
 export class StatChart {
-  cardStats = input<CalculedCardStats>();
-  calculatedDamagesTaken = computed(() => {
-    return [50000, 100000, 150000, 200000];
+  cardStat = input.required<CardStatInfo>();
+
+  barChartData = computed<ChartData<'bar'>>(() => {
+    const stat = this.cardStat();
+    const damageTaken = calculDamageTaken(stat);
+    return {
+      labels: ['', '', '', ''],
+      datasets: [
+        {
+          data: damageTaken,
+          label: 'Damage taken',
+          backgroundColor: getColorsByValue(damageTaken),
+        },
+      ],
+    };
   });
   chart = viewChild<BaseChartDirective<'bar'>>('chart');
   private labelImages: HTMLImageElement[] = [
@@ -91,15 +104,4 @@ export class StatChart {
   barChartType = 'bar' as const;
 
   barChartPlugins = [this.imageLabelsPlugin];
-
-  barChartData: ChartData<'bar'> = {
-    labels: ['', '', '', ''],
-    datasets: [
-      {
-        data: this.calculatedDamagesTaken(),
-        label: 'Damage taken',
-        backgroundColor: getColorsByValue(this.calculatedDamagesTaken()),
-      },
-    ],
-  };
 }
