@@ -27,6 +27,7 @@ export class HomePageComponent {
   protected calculatedCardStats = computed(() => this.cardStat());
 
   handleStats(stats: CardStatInfo) {
+    this.cardStat.set(stats);
     if (this.componentRef) {
       this.componentRef.destroy();
     }

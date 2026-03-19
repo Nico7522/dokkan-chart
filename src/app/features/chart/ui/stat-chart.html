@@ -1,8 +1,27 @@
 @if (cardStat()) {
-<section class="w-[70%] mx-auto mt-15">
-    <canvas baseChart [data]="barChartData()" [options]="barChartOptions" [type]="barChartType"
-        [plugins]="barChartPlugins">
-    </canvas>
+<section class="mx-auto mt-6 md:mt-15 md:w-[70%]">
+    <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+        <div class="min-w-[400px] md:min-w-[400px] ">
+            <canvas baseChart [data]="linked()" [options]="barChartOptions" [type]="barChartType"
+                [plugins]="barChartPlugins">
+            </canvas>
+        </div>
+    </div>
 </section>
 
+<div class="mt-6 md:mt-8">
+    <h3 class="mb-3 text-sm font-semibold text-gray-700">Add boss to chart</h3>
+    <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+        <div class="flex gap-3 pb-2 min-w-max md:flex-wrap md:min-w-0 md:justify-center">
+            @for (boss of bossListSelect; track boss.label; let i = $index) {
+            <button type="button"
+                class="flex shrink-0 items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-sm transition-all hover:border-blue-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 md:gap-3 md:px-4 md:py-3"
+                (click)="pushOne(4 + i)">
+                <img [src]="boss.img" [alt]="boss.label" class="h-8 w-8 rounded object-contain md:h-12 md:w-12" />
+                <span class="text-xs font-medium text-gray-800 md:text-sm">{{ boss.label }}</span>
+            </button>
+            }
+        </div>
+    </div>
+</div>
 }
