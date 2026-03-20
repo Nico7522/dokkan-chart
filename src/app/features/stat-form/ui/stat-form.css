@@ -1,0 +1,37 @@
+/*
+ * dropdownPosition="left" applique left: -100% sur le panneau (thème ng-select) → liste décalée.
+ * Utiliser bottom / auto + pleine largeur pour aligner sur l’input.
+ */
+.support-memory-select.ng-select {
+  display: block;
+  width: 100%;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-select-container {
+  width: 100%;
+}
+
+/* Panneau sous le champ, même largeur que le host */
+.support-memory-select.ng-select ::ng-deep .ng-dropdown-panel {
+  left: 0 ;
+  right: auto ;
+  min-width: 100%;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 0.35rem;
+  padding-inline: 0.25rem;
+  background: white;
+  border-radius: 0.25rem;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-option .flex {
+  width: 100%;
+  min-width: 0;
+}

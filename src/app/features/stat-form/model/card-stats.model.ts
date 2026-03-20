@@ -1,4 +1,5 @@
 import { CardClass, CardType } from '../../../shared/model';
+import { DEFAULT_SUPPORT_MEMORY_VALUE } from './support-memories-list';
 
 /** Leader skill multiplier - maps from percentage to multiplier */
 export const LEADER_SKILL_OPTIONS = [
@@ -21,7 +22,7 @@ export interface CardStatsFormModel {
   additionalPassive: number | null;
   multiplicativePassive: number | null;
   activeSkill: number | null;
-  memorySupport: number | null;
+  supportMemory: number | null;
   defenseAfterSuper: number | null;
   hasGuard: boolean;
   damageReduction: number | null;
@@ -37,7 +38,7 @@ export const INITIAL_CARD_STATS: CardStatsFormModel = {
   additionalPassive: null,
   multiplicativePassive: null,
   activeSkill: null,
-  memorySupport: null,
+  supportMemory: DEFAULT_SUPPORT_MEMORY_VALUE,
   defenseAfterSuper: null,
   hasGuard: false,
   damageReduction: null,

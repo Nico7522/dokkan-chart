@@ -9,7 +9,7 @@ export function calculateDefense(cardStats: CardStatsFormModel): number | undefi
     multiplicativePassive,
     defenseAfterSuper,
     activeSkill,
-    memorySupport,
+    supportMemory,
   } = cardStats;
   if (!baseDefense || !leaderSkill) return;
 
@@ -31,8 +31,8 @@ export function calculateDefense(cardStats: CardStatsFormModel): number | undefi
   }
 
   let memorySupportValue = 1;
-  if (memorySupport) {
-    memorySupportValue = memorySupport / 100 + 1;
+  if (supportMemory) {
+    memorySupportValue = +supportMemory / 100 + 1;
   }
   let defenseAfterSuperValue = 1;
   if (defenseAfterSuper) {

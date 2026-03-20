@@ -140,16 +140,27 @@
         </div>
 
         <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
-            <label for="multiplicative-passive" class="text-sm font-medium text-gray-900">
-                Memory support
+            <label for="memory" class="text-sm font-medium text-gray-900">
+                Support Memory
             </label>
-            <input id="multiplicative-passive" type="number"
-                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
-                [formField]="cardStatsForm.memorySupport" />
-            @if (cardStatsForm.memorySupport().touched() && cardStatsForm.memorySupport().invalid())
-            {
+            <ng-select id="memory" [searchable]="false" dropdownPosition="bottom" clearable="false"
+                class="support-memory-select block w-full rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.supportMemory">
+                @for (memory of supportMemoryList; track $index) {
+                <ng-option [value]="memory.value">
+                    <div class="flex flex-row items-center gap-2">
+                        @if (memory.img) {
+                        <img [src]="memory.img" [alt]="memory.name" class="h-6 w-6 shrink-0 object-contain" />
+
+                        }
+                        <span class="min-w-0 leading-snug">{{ memory.name }} {{ memory.effect }}</span>
+                    </div>
+                </ng-option>
+                }
+            </ng-select>
+            @if (cardStatsForm.cardType().touched() && cardStatsForm.cardType().invalid()) {
             <p class="text-xs text-red-600" role="alert">
-                {{ cardStatsForm.memorySupport().errors()[0].message }}
+                {{ cardStatsForm.cardType().errors()[0].message }}
             </p>
             }
         </div>

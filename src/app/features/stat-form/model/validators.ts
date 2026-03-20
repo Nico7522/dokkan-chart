@@ -20,7 +20,7 @@ export function validateCardStats(schemaPath: SchemaPathTree<CardStatsFormModel>
     min(schemaPath.activeSkill, 1, {
       message: 'Active Skill value cannot be below 1',
     }),
-    min(schemaPath.memorySupport, 1, {
+    min(schemaPath.supportMemory, 1, {
       message: 'Memory support value cannot be below 1',
     }),
     min(schemaPath.defenseAfterSuper, 1, {

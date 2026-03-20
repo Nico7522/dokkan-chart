@@ -8,14 +8,17 @@ import {
 import { validateCardStats } from '../model/validators';
 import { calculateDefense } from '../lib/calulc-defense';
 import { CardStatInfo } from '../../../shared/model/card-stat-info';
+import { supportMemories } from '../model/support-memories-list';
+import { NgOptionComponent, NgSelectComponent } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-stat-form',
-  imports: [FormField],
+  imports: [FormField, NgSelectComponent, NgOptionComponent],
   templateUrl: './stat-form.html',
   styleUrl: './stat-form.css',
 })
 export class StatForm {
+  protected readonly supportMemoryList = supportMemories;
   protected readonly leaderSkillOptions = LEADER_SKILL_OPTIONS;
   protected cardStats = output<CardStatInfo>();
   protected cardStatsModel = signal<CardStatsFormModel>({ ...INITIAL_CARD_STATS });
@@ -27,6 +30,8 @@ export class StatForm {
   protected onSubmit(event: Event): void {
     event.preventDefault();
     const data = this.cardStatsModel();
+    console.log(data);
+
     const totalDefense = calculateDefense(data);
     this.cardStats.emit({
       defense: totalDefense ?? 0,
