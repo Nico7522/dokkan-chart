@@ -23,10 +23,10 @@ export class HomePageComponent {
   private chartContainer = viewChild.required('chart', { read: ViewContainerRef });
   private componentRef: ComponentRef<StatChart> | null = null;
 
-  cardStat = signal<CardStatInfo | null>(null);
+  protected cardStat = signal<CardStatInfo | null>(null);
   protected calculatedCardStats = computed(() => this.cardStat());
 
-  handleStats(stats: CardStatInfo) {
+  protected handleStats(stats: CardStatInfo) {
     this.cardStat.set(stats);
     if (this.componentRef) {
       this.componentRef.destroy();

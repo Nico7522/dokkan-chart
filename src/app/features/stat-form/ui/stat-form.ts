@@ -1,5 +1,5 @@
 import { Component, output, signal } from '@angular/core';
-import { form, FormField, submit } from '@angular/forms/signals';
+import { form, FormField } from '@angular/forms/signals';
 import {
   CardStatsFormModel,
   INITIAL_CARD_STATS,
@@ -17,7 +17,7 @@ import { CardStatInfo } from '../../../shared/model/card-stat-info';
 })
 export class StatForm {
   protected readonly leaderSkillOptions = LEADER_SKILL_OPTIONS;
-  cardStats = output<CardStatInfo>();
+  protected cardStats = output<CardStatInfo>();
   protected cardStatsModel = signal<CardStatsFormModel>({ ...INITIAL_CARD_STATS });
 
   protected cardStatsForm = form(this.cardStatsModel, (schemaPath) => {

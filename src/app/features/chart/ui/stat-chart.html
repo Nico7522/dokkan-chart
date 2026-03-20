@@ -1,8 +1,8 @@
 @if (cardStat()) {
 <section class="mx-auto mt-6 md:mt-15 md:w-[70%]">
     <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
-        <div class="min-w-[400px] md:min-w-[400px] ">
-            <canvas baseChart [data]="linked()" [options]="barChartOptions" [type]="barChartType"
+        <div class="min-w-[700px] md:min-w-[400px] ">
+            <canvas baseChart [data]="barChartData()" [options]="barChartOptions" [type]="barChartType"
                 [plugins]="barChartPlugins">
             </canvas>
         </div>

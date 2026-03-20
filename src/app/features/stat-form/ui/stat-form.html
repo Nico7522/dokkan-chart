@@ -124,6 +124,35 @@
             </p>
             }
         </div>
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="multiplicative-passive" class="text-sm font-medium text-gray-900">
+                Active skill
+            </label>
+            <input id="multiplicative-passive" type="number"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.activeSkill" />
+            @if (cardStatsForm.activeSkill().touched() && cardStatsForm.activeSkill().invalid())
+            {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.activeSkill().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
+            <label for="multiplicative-passive" class="text-sm font-medium text-gray-900">
+                Memory support
+            </label>
+            <input id="multiplicative-passive" type="number"
+                class="rounded border border-gray-300 px-3 py-2 text-base focus:outline-2 focus:outline-blue-500 focus:outline-offset-2"
+                [formField]="cardStatsForm.memorySupport" />
+            @if (cardStatsForm.memorySupport().touched() && cardStatsForm.memorySupport().invalid())
+            {
+            <p class="text-xs text-red-600" role="alert">
+                {{ cardStatsForm.memorySupport().errors()[0].message }}
+            </p>
+            }
+        </div>
 
         <div class="mb-4 flex flex-col gap-1.5 last:mb-0">
             <label for="defense-after-super" class="text-sm font-medium text-gray-900">

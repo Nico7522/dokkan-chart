@@ -4,6 +4,7 @@ import { ChartConfiguration, ChartData, Plugin } from 'chart.js';
 import { getColorsByValue } from '../lib/get-color-by-value';
 import { CardClass, CardStatInfo, CardType } from '../../../shared/model';
 import { calculDamageTaken } from '../lib/calcul-damage-taken';
+import { bossList } from '../model/boss-list';
 
 @Component({
   selector: 'app-stat-chart',
@@ -12,78 +13,35 @@ import { calculDamageTaken } from '../lib/calcul-damage-taken';
   styleUrl: './stat-chart.css',
 })
 export class StatChart {
-  bossList = [
-    {
-      img: '/card_1028962.png',
-      label: 'Cell Max',
-      class: 'Extreme',
-      type: 'AGL',
-      damage: 3937500,
-      ignoreDefense: 0.7,
-    },
-    {
-      img: '/card_1031502.png',
-      label: 'Shenron',
-      class: 'Extreme',
-      type: 'INT',
-      damage: 10500000,
-    },
-    {
-      img: '/card_1014972.png',
-      label: 'Goku & Frieza',
-      class: 'Super',
-      type: 'STR',
-      damage: 20000000,
-    },
-    {
-      img: '/card_1029272.png',
-      label: 'Bio Broly',
-      class: 'Extreme',
-      type: 'PHY',
-      damage: 23625000,
-    },
-    {
-      img: '/card_1032552.png',
-      label: 'Goku 4 DAIMA',
-      class: 'Super',
-      type: 'STR',
-      damage: 12000000,
-    },
-    {
-      img: '/card_1032582.png',
-      label: 'Vegeta 3 DAIMA',
-      class: 'Super',
-      type: 'TEQ',
-      damage: 11655000,
-    },
-  ];
-  private readonly startingBossList = this.bossList.slice(0, 4);
-  protected readonly bossListSelect = this.bossList.slice(4);
-  cardStat = input.required<CardStatInfo>();
-  barChartData = computed<ChartData<'bar'>>(() => {
+  private readonly startingBossList = bossList.slice(0, 4);
+  protected readonly bossListSelect = bossList.slice(4);
+  readonly cardStat = input.required<CardStatInfo>();
+  readonly baseBarChartData = computed<ChartData<'bar'>>(() => {
+    const values = this.startingBossList.map((b) =>
+      calculDamageTaken(
+        this.cardStat(),
+        b.class as CardClass,
+        b.type as CardType,
+        b.damage,
+        b.ignoreDefense,
+      ),
+    );
     return {
       labels: this.startingBossList.map((b) => b.label),
       datasets: [
         {
-          data: this.startingBossList.map((b) =>
-            calculDamageTaken(
-              this.cardStat(),
-              b.class as CardClass,
-              b.type as CardType,
-              b.damage,
-              b.ignoreDefense,
-            ),
-          ),
+          data: values,
           label: 'Damage taken',
+          backgroundColor: getColorsByValue(values),
         },
       ],
     };
   });
-  linked = linkedSignal(() => this.barChartData());
-  chart = viewChild<BaseChartDirective<'bar'>>('chart');
+  protected barChartData = linkedSignal(() => this.baseBarChartData());
+  protected readonly chart = viewChild<BaseChartDirective<'bar'>>('chart');
 
   private labelToImageMap = new Map(
-    this.bossList.map((b) => {
+    bossList.map((b) => {
       const img = new Image();
       img.src = b.img;
       return [b.label, img] as [string, HTMLImageElement];
@@ -127,7 +85,7 @@ export class StatChart {
       });
     },
   };
-  barChartOptions: ChartConfiguration<'bar'>['options'] = {
+  protected readonly barChartOptions: ChartConfiguration<'bar'>['options'] = {
     responsive: true,
     maintainAspectRatio: true,
     scales: {
@@ -153,6 +111,7 @@ export class StatChart {
       },
       y: {
         min: 0,
+        max: 10000000,
         title: {
           display: true,
           text: 'Damage taken',
@@ -177,15 +136,15 @@ export class StatChart {
     },
   };
 
-  barChartType = 'bar' as const;
+  protected readonly barChartType = 'bar' as const;
 
-  barChartPlugins = [this.imageLabelsPlugin];
+  protected readonly barChartPlugins = [this.imageLabelsPlugin];
 
   pushOne(bossListIndex: number) {
-    const currentData = this.linked();
+    const currentData = this.barChartData();
     const labels = (currentData.labels ?? []) as string[];
     const currentDataValues = (currentData.datasets[0]?.data ?? []) as number[];
-    const boss = this.bossList[bossListIndex];
+    const boss = bossList[bossListIndex];
     const newDamage = calculDamageTaken(
       this.cardStat(),
       boss.class as CardClass,
@@ -195,7 +154,7 @@ export class StatChart {
     );
     const newData = [...currentDataValues, newDamage];
 
-    this.linked.set({
+    this.barChartData.set({
       labels: [...labels, boss.label],
       datasets: [
         {

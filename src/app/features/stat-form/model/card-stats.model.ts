@@ -20,6 +20,8 @@ export interface CardStatsFormModel {
   links: number | null;
   additionalPassive: number | null;
   multiplicativePassive: number | null;
+  activeSkill: number | null;
+  memorySupport: number | null;
   defenseAfterSuper: number | null;
   hasGuard: boolean;
   damageReduction: number | null;
@@ -34,6 +36,8 @@ export const INITIAL_CARD_STATS: CardStatsFormModel = {
   links: null,
   additionalPassive: null,
   multiplicativePassive: null,
+  activeSkill: null,
+  memorySupport: null,
   defenseAfterSuper: null,
   hasGuard: false,
   damageReduction: null,

@@ -15,6 +15,8 @@ export function calculDamageTaken(
     bossClass,
     bossType,
   );
+  console.log(bossClass, bossType, guardMultiplier);
+
   return (
     (bossDamage * 1.03 * guardMultiplier * (1 - reduction) -
       cardStats.defense * (1 - (ignoreDefense ?? 0))) *
@@ -33,170 +35,21 @@ function getGuardMultiplier(
   if (hasGuard) {
     guardMultiplier = 0.8;
   } else {
-    switch (bossType) {
-      case 'AGL':
-        if (cardType === 'AGL' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'AGL' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'STR' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.5;
-        }
-        if (cardType === 'STR' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.25;
-        }
-        if (cardType === 'PHY' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'PHY' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'TEQ' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'TEQ' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 0.9;
-        }
-        if (cardType === 'INT' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'INT' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        break;
-      case 'STR':
-        if (cardType === 'AGL' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'AGL' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 0.9;
-        }
-        if (cardType === 'STR' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'STR' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'PHY' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.5;
-        }
-        if (cardType === 'PHY' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.25;
-        }
-        if (cardType === 'TEQ' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'TEQ' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'INT' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'INT' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        break;
-      case 'TEQ':
-        if (cardType === 'AGL' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.5;
-        }
-        if (cardType === 'AGL' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.25;
-        }
-        if (cardType === 'STR' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'STR' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'PHY' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'PHY' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'TEQ' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'TEQ' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'INT' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'INT' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 0.9;
-        }
-        break;
-      case 'INT':
-        if (cardType === 'AGL' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'AGL' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'STR' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'STR' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'PHY' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'PHY' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 0.9;
-        }
-        if (cardType === 'TEQ' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.5;
-        }
-        if (cardType === 'TEQ' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.25;
-        }
-        if (cardType === 'INT' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'INT' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        break;
-      case 'PHY':
-        if (cardType === 'AGL' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'AGL' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'STR' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'STR' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 0.9;
-        }
-        if (cardType === 'PHY' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'PHY' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'TEQ' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.15;
-        }
-        if (cardType === 'TEQ' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1;
-        }
-        if (cardType === 'INT' && isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.5;
-        }
-        if (cardType === 'INT' && !isOpositeClass(cardClass, bossClass)) {
-          guardMultiplier = 1.25;
-        }
-        break;
-      default:
-        break;
-    }
+    if (isOpositeClass(cardClass, bossClass)) guardMultiplier = 1.15;
+
+    if (!isOpositeClass(cardClass, bossClass)) guardMultiplier = 1;
+
+    if (hasTypeAdvantage(cardType, bossType) && isOpositeClass(cardClass, bossClass))
+      guardMultiplier = 1;
+
+    if (hasTypeAdvantage(cardType, bossType) && !isOpositeClass(cardClass, bossClass))
+      guardMultiplier = 0.9;
+
+    if (hasTypeDisadvantage(cardType, bossType) && isOpositeClass(cardClass, bossClass))
+      guardMultiplier = 1.5;
+
+    if (hasTypeDisadvantage(cardType, bossType) && !isOpositeClass(cardClass, bossClass))
+      guardMultiplier = 1.25;
   }
   return guardMultiplier;
 }

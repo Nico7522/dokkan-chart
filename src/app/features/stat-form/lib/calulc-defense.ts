@@ -8,6 +8,8 @@ export function calculateDefense(cardStats: CardStatsFormModel): number | undefi
     additionalPassive,
     multiplicativePassive,
     defenseAfterSuper,
+    activeSkill,
+    memorySupport,
   } = cardStats;
   if (!baseDefense || !leaderSkill) return;
 
@@ -23,6 +25,15 @@ export function calculateDefense(cardStats: CardStatsFormModel): number | undefi
   if (multiplicativePassive) {
     multiplicativePassiveValue = multiplicativePassive / 100 + 1;
   }
+  let activeSkillValue = 1;
+  if (activeSkill) {
+    activeSkillValue = activeSkill / 100 + 1;
+  }
+
+  let memorySupportValue = 1;
+  if (memorySupport) {
+    memorySupportValue = memorySupport / 100 + 1;
+  }
   let defenseAfterSuperValue = 1;
   if (defenseAfterSuper) {
     defenseAfterSuperValue = defenseAfterSuper / 100 + 1;
@@ -33,6 +44,8 @@ export function calculateDefense(cardStats: CardStatsFormModel): number | undefi
     linksValue *
     additionalPassiveValue *
     multiplicativePassiveValue *
+    activeSkillValue *
+    memorySupportValue *
     defenseAfterSuperValue;
 
   return totalDefense;

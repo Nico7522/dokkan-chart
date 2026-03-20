@@ -17,6 +17,12 @@ export function validateCardStats(schemaPath: SchemaPathTree<CardStatsFormModel>
     min(schemaPath.multiplicativePassive, 1, {
       message: 'Multiplicative passive cannot be below 1',
     }),
+    min(schemaPath.activeSkill, 1, {
+      message: 'Active Skill value cannot be below 1',
+    }),
+    min(schemaPath.memorySupport, 1, {
+      message: 'Memory support value cannot be below 1',
+    }),
     min(schemaPath.defenseAfterSuper, 1, {
       message: 'Defense after super cannot be below 1',
     }),
