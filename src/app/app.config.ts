@@ -1,9 +1,4 @@
-import {
-  APP_INITIALIZER,
-  ApplicationConfig,
-  isDevMode,
-  provideBrowserGlobalErrorListeners,
-} from '@angular/core';
+import { ApplicationConfig, isDevMode, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -15,11 +10,6 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideCharts(withDefaultRegisterables()),
-    {
-      provide: APP_INITIALIZER,
-      useFactory: () => {
-        inject({ mode: isDevMode() ? 'development' : 'production' });
-      },
-    },
   ],
 };
+inject({ mode: isDevMode() ? 'development' : 'production' });
