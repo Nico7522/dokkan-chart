@@ -99,14 +99,13 @@ export class StatChart {
           },
         },
         title: {
-          display: true,
+          display: false,
           text: 'Boss',
           font: {
             size: 14,
             weight: 'bold',
           },
           color: '#666',
-          padding: { top: 80 },
         },
       },
       y: {
