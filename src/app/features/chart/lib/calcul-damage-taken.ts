@@ -15,7 +15,6 @@ export function calculDamageTaken(
     bossClass,
     bossType,
   );
-  console.log(bossClass, bossType, guardMultiplier);
 
   return (
     (bossDamage * 1.03 * guardMultiplier * (1 - reduction) -
