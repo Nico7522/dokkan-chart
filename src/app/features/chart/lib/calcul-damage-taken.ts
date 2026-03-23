@@ -15,7 +15,6 @@ export function calculDamageTaken(
     bossClass,
     bossType,
   );
-
   return (
     (bossDamage * 1.03 * guardMultiplier * (1 - reduction) -
       cardStats.defense * (1 - (ignoreDefense ?? 0))) *
