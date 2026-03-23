@@ -67,8 +67,8 @@ export class StatChart {
       const ctx = chart.ctx;
       const xAxis = chart.scales['x'];
       const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
-      const imgSize = isMobile ? 32 : 50;
-      const imgOffsetY = isMobile ? 20 : 40;
+      const imgSize = isMobile ? 36 : 56;
+      const imgOffsetY = isMobile ? 8 : 12;
 
       labels.forEach((label, i) => {
         const img = this.labelToImageMap.get(label);
@@ -91,26 +91,21 @@ export class StatChart {
     scales: {
       x: {
         ticks: {
-          padding: 100,
-
-          autoSkip: false,
-          font: {
-            size: 11,
-          },
-        },
-        title: {
           display: false,
-          text: 'Boss',
-          font: {
-            size: 14,
-            weight: 'bold',
-          },
-          color: '#666',
+        },
+        grid: {
+          color: '#3f3f46',
         },
       },
       y: {
         min: 0,
         max: 10000000,
+        ticks: {
+          color: '#a1a1aa',
+        },
+        grid: {
+          color: '#3f3f46',
+        },
         title: {
           display: true,
           text: 'Damage taken',
@@ -118,12 +113,26 @@ export class StatChart {
             size: 14,
             weight: 'bold',
           },
+          color: '#a1a1aa',
         },
       },
     },
     plugins: {
       legend: {
         display: false,
+      },
+      tooltip: {
+        backgroundColor: '#18181b',
+        titleColor: '#f4f4f5',
+        bodyColor: '#a1a1aa',
+        borderColor: '#3f3f46',
+        borderWidth: 1,
+        padding: 12,
+        displayColors: false,
+        callbacks: {
+          title: (items) => items[0]?.label ?? '',
+          label: (item) => `Damage: ${item.formattedValue}`,
+        },
       },
     },
     layout: {

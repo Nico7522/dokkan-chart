@@ -1,7 +1,42 @@
-/*
- * dropdownPosition="left" applique left: -100% sur le panneau (thème ng-select) → liste décalée.
- * Utiliser bottom / auto + pleine largeur pour aligner sur l’input.
- */
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #e4e4e7;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 0.5rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input::placeholder {
+  color: #71717a;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #ea580c;
+  box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.2);
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2371717a' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.form-select option {
+  background-color: #27272a;
+  color: #e4e4e7;
+}
+
+/* Support Memory Select - ng-select dark theme */
 .support-memory-select.ng-select {
   display: block;
   width: 100%;
@@ -9,15 +44,53 @@
 
 .support-memory-select.ng-select ::ng-deep .ng-select-container {
   width: 100%;
+  min-height: 42px;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 0.5rem;
+  color: #e4e4e7;
 }
 
-/* Panneau sous le champ, même largeur que le host */
+.support-memory-select.ng-select ::ng-deep .ng-select-container:hover {
+  border-color: #52525b;
+}
+
+.support-memory-select.ng-select.ng-select-focused ::ng-deep .ng-select-container {
+  border-color: #ea580c;
+  box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.2);
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-value-container {
+  padding-left: 0.875rem;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-value {
+  color: #e4e4e7;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-arrow-wrapper {
+  padding-right: 0.5rem;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-arrow {
+  border-color: #71717a transparent transparent;
+}
+
 .support-memory-select.ng-select ::ng-deep .ng-dropdown-panel {
-  left: 0 ;
-  right: auto ;
+  left: 0;
+  right: auto;
   min-width: 100%;
-  width: 100%; 
+  width: 100%;
   box-sizing: border-box;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  margin-top: 4px;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-dropdown-panel-items {
+  max-height: 250px;
 }
 
 .support-memory-select.ng-select ::ng-deep .ng-option {
@@ -25,13 +98,34 @@
   flex-direction: row;
   align-items: center;
   gap: 0.5rem;
-  padding-block: 0.35rem;
-  padding-inline: 0.25rem;
-  background: white;
-  border-radius: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: #27272a;
+  color: #e4e4e7;
+  transition: background-color 0.1s ease;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-option:hover,
+.support-memory-select.ng-select ::ng-deep .ng-option.ng-option-marked {
+  background-color: #3f3f46;
+}
+
+.support-memory-select.ng-select ::ng-deep .ng-option.ng-option-selected {
+  background-color: rgba(234, 88, 12, 0.15);
+  color: #fb923c;
 }
 
 .support-memory-select.ng-select ::ng-deep .ng-option .flex {
   width: 100%;
   min-width: 0;
+}
+
+/* Hide number input spinners */
+.form-input[type="number"]::-webkit-outer-spin-button,
+.form-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-input[type="number"] {
+  -moz-appearance: textfield;
 }

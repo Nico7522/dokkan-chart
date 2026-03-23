@@ -6,4 +6,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/home').then((m) => m.HomePageComponent),
   },
+  {
+    path: 'calculation',
+    loadComponent: () =>
+      import('./pages/calculation').then((m) => m.CalculationPageComponent),
+  },
 ];
