@@ -1,20 +1,23 @@
-import { Component, computed, input, linkedSignal, viewChild } from '@angular/core';
+import { Component, computed, input, linkedSignal, signal, viewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts';
 import { ChartConfiguration, ChartData, Plugin } from 'chart.js';
 import { getColorsByValue } from '../lib/get-color-by-value';
 import { CardClass, CardStatInfo, CardType } from '../../../shared/model';
 import { calculDamageTaken } from '../lib/calcul-damage-taken';
 import { bossList } from '../model/boss-list';
+import { AddOwnBossDamageForm } from './add-own-boss-damage-form/add-own-boss-damage-form';
+import { BossFormModel } from '../model/boss-form-model';
 
 @Component({
   selector: 'app-stat-chart',
-  imports: [BaseChartDirective],
+  imports: [BaseChartDirective, AddOwnBossDamageForm],
   templateUrl: './stat-chart.html',
   styleUrl: './stat-chart.css',
 })
 export class StatChart {
   private readonly startingBossList = bossList.slice(0, 4);
   protected readonly bossListSelect = bossList.slice(4);
+  showInput = signal(false);
   readonly cardStat = input.required<CardStatInfo>();
   readonly baseBarChartData = computed<ChartData<'bar'>>(() => {
     const values = this.startingBossList.map((b) =>
@@ -149,21 +152,51 @@ export class StatChart {
   protected readonly barChartPlugins = [this.imageLabelsPlugin];
 
   pushOne(bossListIndex: number) {
-    const currentData = this.barChartData();
-    const labels = (currentData.labels ?? []) as string[];
-    const currentDataValues = (currentData.datasets[0]?.data ?? []) as number[];
     const boss = bossList[bossListIndex];
-    const newDamage = calculDamageTaken(
-      this.cardStat(),
+    this.addBossToChart(
+      boss.label,
       boss.class as CardClass,
       boss.type as CardType,
       boss.damage,
       boss.ignoreDefense,
     );
+  }
+
+  showAddBossForm() {
+    this.showInput.set(true);
+  }
+
+  onBossDamageReceived(bossForm: BossFormModel) {
+    this.addBossToChart(
+      bossForm.bossName,
+      bossForm.bossClass,
+      bossForm.bossType,
+      bossForm.baseAttack,
+    );
+  }
+
+  private addBossToChart(
+    label: string,
+    bossClass: CardClass,
+    bossType: CardType,
+    damage: number,
+    ignoreDefense?: number,
+  ) {
+    const currentData = this.barChartData();
+    const labels = (currentData.labels ?? []) as string[];
+    const currentDataValues = (currentData.datasets[0]?.data ?? []) as number[];
+
+    const newDamage = calculDamageTaken(
+      this.cardStat(),
+      bossClass,
+      bossType,
+      damage,
+      ignoreDefense,
+    );
     const newData = [...currentDataValues, newDamage];
 
     this.barChartData.set({
-      labels: [...labels, boss.label],
+      labels: [...labels, label],
       datasets: [
         {
           data: newData,

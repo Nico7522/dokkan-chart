@@ -1,0 +1,55 @@
+<form (submit)="onSubmit($event)">
+    <div class="flex flex-col items-center justify-center gap-3 mt-5">
+        <label for="boss-name" class="text-sm font-medium text-zinc-300">
+            Boss Name
+        </label>
+        <input [formField]="bossForm.bossName" id="boss-name" type="text" class="form-input" placeholder="Broly ..." />
+        @if (bossForm.bossName().touched() && bossForm.bossName().invalid()) {
+        <p class="text-xs text-red-400" role="alert">
+            {{ bossForm.bossName().errors()[0].message }}
+        </p>
+        }
+    </div>
+    <div class="flex flex-col items-center justify-center gap-3 mt-5">
+        <label for="base-attack" class="text-sm font-medium text-zinc-300">
+            Base Attack
+        </label>
+        <input [formField]="bossForm.baseAttack" id="base-attack" type="number" class="form-input" placeholder="0" />
+
+    </div>
+    <div class="">
+        <div class="flex flex-col gap-1.5">
+            <label for="boss-class" class="text-sm font-medium text-zinc-300">
+                Boss class
+            </label>
+            <select id="boss-class" class="form-select" [formField]="bossForm.bossClass">
+                <option value="" disabled>Select class</option>
+                <option value="Extreme">Extreme</option>
+                <option value="Super">Super</option>
+            </select>
+
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label for="boss-type" class="text-sm font-medium text-zinc-300">
+                Boss type
+            </label>
+            <select id="boss-type" class="form-select" [formField]="bossForm.bossType">
+                <option value="" disabled>Select type</option>
+                <option value="TEQ">TEQ</option>
+                <option value="INT">INT</option>
+                <option value="PHY">PHY</option>
+                <option value="STR">STR</option>
+                <option value="AGL">AGL</option>
+            </select>
+
+        </div>
+    </div>
+
+
+
+    <button type="submit" [disabled]="bossForm().invalid()"
+        class="mt-2 flex items-center justify-center w-full rounded-lg bg-orange-600 px-7 py-2 text-base font-semibold text-white transition-colors hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-zinc-900 disabled:cursor-not-allowed disabled:opacity-50">
+        Show on chart
+    </button>
+</form>
