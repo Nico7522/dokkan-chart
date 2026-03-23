@@ -88,8 +88,7 @@
                 <label for="links" class="text-sm font-medium text-zinc-300">
                     Links
                 </label>
-                <input id="links" type="number" class="form-input" placeholder="0"
-                    [formField]="cardStatsForm.links" />
+                <input id="links" type="number" class="form-input" placeholder="0" [formField]="cardStatsForm.links" />
                 @if (cardStatsForm.links().touched() && cardStatsForm.links().invalid()) {
                 <p class="text-xs text-red-400" role="alert">
                     {{ cardStatsForm.links().errors()[0].message }}
