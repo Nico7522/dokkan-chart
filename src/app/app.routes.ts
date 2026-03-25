@@ -11,4 +11,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/calculation').then((m) => m.CalculationPageComponent),
   },
+  {
+    path: 'calcul-boss-damage',
+    loadComponent: () =>
+      import('./pages/calcul-boss-damage').then(
+        (m) => m.CalculBossDamagePageComponent
+      ),
+  },
 ];

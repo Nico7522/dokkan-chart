@@ -1,0 +1,46 @@
+<div class="min-h-screen bg-zinc-950 px-4 py-8 sm:px-6 lg:px-8">
+  <!-- Header -->
+  <header class="mx-auto max-w-3xl mb-8">
+    <a routerLink="/"
+      class="inline-flex items-center gap-2 text-zinc-400 hover:text-orange-400 transition-colors text-sm mb-6">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Back to home
+    </a>
+    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">
+      Boss Damage Calculator
+    </h1>
+    <p class="text-zinc-400 text-sm sm:text-base">
+      Enter boss stats to calculate maximum damage output.
+    </p>
+  </header>
+
+  <!-- Form -->
+  <section class="mx-auto max-w-3xl">
+    <div class="bg-zinc-900 rounded-xl border border-zinc-800 p-6 sm:p-8">
+      <app-boss-damage-form (bossDamage)="handleResult($event)" />
+    </div>
+  </section>
+
+  <!-- Results -->
+  @if (calculatedResult(); as result) {
+  <section class="mx-auto max-w-3xl mt-8">
+    <div class="bg-zinc-900 rounded-xl border border-zinc-800 p-6">
+      <h2 class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+        <svg class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Results
+      </h2>
+      <div class="bg-zinc-800/50 rounded-lg p-4 border border-zinc-700/50">
+        <dt class="text-xs font-medium text-zinc-400 uppercase tracking-wide mb-1">Max Damage</dt>
+        <dd class="text-2xl font-bold text-orange-400">Normal : {{ result.totalNormalAttackDamage| number }}</dd>
+        <dd class="text-2xl font-bold text-orange-400">Super : {{ result.totalSuperAttackDamage| number }}</dd>
+
+      </div>
+    </div>
+  </section>
+  }
+</div>

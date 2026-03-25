@@ -1,0 +1,81 @@
+<form (submit)="onSubmit($event)" class="flex flex-col gap-6">
+    <fieldset class="space-y-4">
+        <legend class="text-sm font-medium text-orange-400 uppercase tracking-wide mb-3">
+            Boss Stats
+        </legend>
+
+        <div class="flex flex-col gap-1.5">
+            <label for="base-attack-damage" class="text-sm font-medium text-zinc-300">
+                Base attack damage (%)
+            </label>
+            <input id="base-attack-damage" type="number" class="form-input" placeholder="0"
+                [formField]="bossDamageForm.baseAttackDamage" />
+            @if (bossDamageForm.baseAttackDamage().touched() && bossDamageForm.baseAttackDamage().invalid()) {
+            <p class="text-xs text-red-400" role="alert">
+                {{ bossDamageForm.baseAttackDamage().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label for="super-attack-damage" class="text-sm font-medium text-zinc-300">
+                Super attack damage (%)
+            </label>
+            <input id="super-attack-damage" type="number" class="form-input" placeholder="0"
+                [formField]="bossDamageForm.superAttackDamage" />
+            @if (bossDamageForm.superAttackDamage().touched() && bossDamageForm.superAttackDamage().invalid()) {
+            <p class="text-xs text-red-400" role="alert">
+                {{ bossDamageForm.superAttackDamage().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label for="attack-special" class="text-sm font-medium text-zinc-300">
+                Attack gained on special attack
+            </label>
+            <input id="attack-special" type="number" class="form-input" placeholder="0"
+                [formField]="bossDamageForm.attackGainedOnSpecialAttack" />
+            @if (bossDamageForm.attackGainedOnSpecialAttack().touched() &&
+            bossDamageForm.attackGainedOnSpecialAttack().invalid()) {
+            <p class="text-xs text-red-400" role="alert">
+                {{ bossDamageForm.attackGainedOnSpecialAttack().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label for="attack-turns" class="text-sm font-medium text-zinc-300">
+                Attack gained after X turns
+            </label>
+            <input id="attack-turns" type="number" class="form-input" placeholder="0"
+                [formField]="bossDamageForm.attackGainedAfterXTurns" />
+            @if (bossDamageForm.attackGainedAfterXTurns().touched() &&
+            bossDamageForm.attackGainedAfterXTurns().invalid()) {
+            <p class="text-xs text-red-400" role="alert">
+                {{ bossDamageForm.attackGainedAfterXTurns().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label for="attack-received" class="text-sm font-medium text-zinc-300">
+                Attack gained after attack received
+            </label>
+            <input id="attack-received" type="number" class="form-input" placeholder="0"
+                [formField]="bossDamageForm.attackGainedAfterAttackReceived" />
+            @if (bossDamageForm.attackGainedAfterAttackReceived().touched() &&
+            bossDamageForm.attackGainedAfterAttackReceived().invalid()) {
+            <p class="text-xs text-red-400" role="alert">
+                {{ bossDamageForm.attackGainedAfterAttackReceived().errors()[0].message }}
+            </p>
+            }
+        </div>
+    </fieldset>
+
+    <button type="submit"
+        class="mt-2 w-full sm:w-auto sm:self-end rounded-lg bg-orange-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-zinc-900 disabled:cursor-not-allowed disabled:opacity-50"
+        [disabled]="bossDamageForm().invalid()">
+        Calculate
+    </button>
+</form>
