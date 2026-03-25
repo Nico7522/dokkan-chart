@@ -15,146 +15,181 @@
       <div
         class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-orange-400/30 rounded-full px-4 py-2 mb-8">
         <span class="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
-        <span class="text-sm text-orange-200">Dokkan Battle Defense Calculator</span>
+        <span class="text-sm text-orange-200">Dokkan Battle Calculator Suite</span>
       </div>
 
       <!-- Main title -->
       <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
         <span class="bg-gradient-to-r from-white via-orange-100 to-yellow-100 bg-clip-text text-transparent">
-          Master Your
+          Dokkan
         </span>
         <br />
         <span class="bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
-          Card Defense
+          Chart
         </span>
       </h1>
 
       <!-- Subtitle -->
-      <p class="text-xl md:text-2xl text-orange-100/80 max-w-2xl mx-auto mb-12 leading-relaxed">
-        Calculate your card's defensive stats and visualize damage against different bosses with precision.
+      <p class="text-xl md:text-2xl text-orange-100/80 max-w-3xl mx-auto mb-12 leading-relaxed">
+        Calculate your card's defense, estimate boss damage output, and visualize it all with precision charts.
       </p>
 
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-        <a routerLink="/calculation"
-          class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 pulse-glow">
-          <span>Start Calculating</span>
-          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
-            viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </a>
-        <a href="#features"
-          class="inline-flex items-center gap-2 text-orange-200 hover:text-white font-medium px-6 py-4 rounded-xl border border-white/20 hover:border-orange-400/50 backdrop-blur-sm transition-all duration-300">
-          <span>Learn More</span>
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </a>
-      </div>
-
-      <!-- Preview Card -->
-      <div class="relative max-w-4xl mx-auto">
-        <div class="glow rounded-2xl overflow-hidden border border-orange-500/20 bg-zinc-900/80 backdrop-blur-xl">
-          <div class="bg-zinc-800/50 px-6 py-4 border-b border-orange-500/10 flex items-center gap-3">
-            <div class="flex gap-2">
-              <div class="w-3 h-3 rounded-full bg-red-500"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div class="w-3 h-3 rounded-full bg-green-500"></div>
-            </div>
-            <span class="text-sm text-zinc-400">Defense Calculator Preview</span>
-          </div>
-          <div class="p-8">
-            <div class="grid md:grid-cols-3 gap-6">
-              <div class="bg-zinc-800/50 rounded-xl p-6 border border-orange-500/10">
-                <div class="text-3xl font-bold text-orange-400 mb-2">1,250,000</div>
-                <div class="text-sm text-zinc-400">Total Defense</div>
-              </div>
-              <div class="bg-zinc-800/50 rounded-xl p-6 border border-orange-500/10">
-                <div class="text-3xl font-bold text-amber-400 mb-2">58%</div>
-                <div class="text-sm text-zinc-400">Damage Reduction</div>
-              </div>
-              <div class="bg-zinc-800/50 rounded-xl p-6 border border-orange-500/10">
-                <div class="flex items-center gap-2 text-3xl font-bold text-yellow-400 mb-2">
-                  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
-                  Guard
-                </div>
-                <div class="text-sm text-zinc-400">Active</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 float-animation">
-      <svg class="w-6 h-6 text-orange-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
+      <!-- Scroll indicator -->
+      <a href="#tools"
+        class="inline-flex flex-col items-center gap-2 text-orange-300 hover:text-orange-200 transition-colors">
+        <span class="text-sm font-medium">Explore Tools</span>
+        <svg class="w-6 h-6 float-animation" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </a>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section id="features" class="relative py-24 px-6 bg-zinc-900">
+  <!-- Tools Section -->
+  <section id="tools" class="relative py-24 px-6 bg-zinc-900">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold mb-6">
           <span class="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-            Powerful Features
+            Choose Your Calculator
           </span>
         </h2>
         <p class="text-xl text-zinc-400 max-w-2xl mx-auto">
-          Everything you need to analyze your card's defensive capabilities
+          Two powerful tools to master every aspect of Dokkan Battle combat
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
-        <div class="card-hover bg-zinc-800/50 rounded-2xl p-8 border border-zinc-700/50 hover:border-orange-500/30">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Defense Calculator Card -->
+        <div
+          class="tool-card group relative bg-zinc-800/50 rounded-2xl border border-zinc-700/50 hover:border-orange-500/50 overflow-hidden transition-all duration-300">
           <div
-            class="w-14 h-14 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-            </svg>
+            class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Precise Calculations</h3>
-          <p class="text-zinc-400 leading-relaxed">
-            Input all your card stats including base defense, leader skill, links, and passives for accurate results.
-          </p>
+          <div class="relative p-8">
+            <!-- Icon -->
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-orange-500/20">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mb-3">Defense Calculator</h3>
+            <p class="text-zinc-400 mb-6 leading-relaxed">
+              Calculate your card's total defense and visualize damage taken against multiple bosses with an interactive
+              chart.
+            </p>
+
+            <!-- Features list -->
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-orange-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Base defense, leader skill, links & passives
+              </li>
+              <li class="flex items-center gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-orange-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Guard & damage reduction support
+              </li>
+              <li class="flex items-center gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-orange-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Visual chart comparison against bosses
+              </li>
+            </ul>
+
+            <!-- Preview stats -->
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="bg-zinc-900/50 rounded-xl p-4 border border-zinc-700/50">
+                <div class="text-2xl font-bold text-orange-400">1,250,000</div>
+                <div class="text-xs text-zinc-500 uppercase tracking-wide">Total Defense</div>
+              </div>
+              <div class="bg-zinc-900/50 rounded-xl p-4 border border-zinc-700/50">
+                <div class="text-2xl font-bold text-amber-400">58%</div>
+                <div class="text-xs text-zinc-500 uppercase tracking-wide">Reduction</div>
+              </div>
+            </div>
+
+            <a routerLink="/calculation"
+              class="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-400 hover:to-amber-400 text-white font-semibold px-6 py-4 rounded-xl transition-all duration-300">
+              <span>Open Defense Calculator</span>
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="card-hover bg-zinc-800/50 rounded-2xl p-8 border border-zinc-700/50 hover:border-orange-500/30">
+        <!-- Boss Damage Calculator Card -->
+        <div
+          class="tool-card group relative bg-zinc-800/50 rounded-2xl border border-zinc-700/50 hover:border-red-500/50 overflow-hidden transition-all duration-300">
           <div
-            class="w-14 h-14 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
-            </svg>
+            class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Visual Charts</h3>
-          <p class="text-zinc-400 leading-relaxed">
-            See damage taken against multiple bosses displayed in an interactive chart for easy comparison.
-          </p>
-        </div>
+          <div class="relative p-8">
+            <!-- Icon -->
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-red-500/20">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
 
-        <!-- Feature 3 -->
-        <div class="card-hover bg-zinc-800/50 rounded-2xl p-8 border border-zinc-700/50 hover:border-orange-500/30">
-          <div
-            class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
+            <h3 class="text-2xl font-bold text-white mb-3">Boss Damage Calculator</h3>
+            <p class="text-zinc-400 mb-6 leading-relaxed">
+              Estimate the maximum damage a boss can deal based on their attack buffs and special attack multipliers.
+            </p>
+
+            <!-- Features list -->
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-center gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Base & super attack damage calculation
+              </li>
+              <li class="flex items-center gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Attack gained on special & turns
+              </li>
+              <li class="flex items-center gap-3 text-sm text-zinc-300">
+                <svg class="w-5 h-5 text-red-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Buff stacking after hits received
+              </li>
+            </ul>
+
+            <!-- Preview stats -->
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="bg-zinc-900/50 rounded-xl p-4 border border-zinc-700/50">
+                <div class="text-2xl font-bold text-red-400">4,500,000</div>
+                <div class="text-xs text-zinc-500 uppercase tracking-wide">Normal ATK</div>
+              </div>
+              <div class="bg-zinc-900/50 rounded-xl p-4 border border-zinc-700/50">
+                <div class="text-2xl font-bold text-rose-400">12,000,000</div>
+                <div class="text-xs text-zinc-500 uppercase tracking-wide">Super ATK</div>
+              </div>
+            </div>
+
+            <a routerLink="/calcul-boss-damage"
+              class="inline-flex items-center justify-center gap-2 w-full bg-gradient-to-r from-red-500 to-rose-600 hover:from-red-400 hover:to-rose-500 text-white font-semibold px-6 py-4 rounded-xl transition-all duration-300">
+              <span>Open Boss Calculator</span>
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Guard & Reduction</h3>
-          <p class="text-zinc-400 leading-relaxed">
-            Factor in guard activation and damage reduction percentages for complete defensive analysis.
-          </p>
         </div>
       </div>
     </div>
@@ -170,54 +205,95 @@
           </span>
         </h2>
         <p class="text-xl text-zinc-400 max-w-2xl mx-auto">
-          Three simple steps to analyze your card's defense
+          Simple steps to analyze your cards and bosses
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Step 1 -->
-        <div class="relative">
-          <div
-            class="absolute -left-4 -top-4 w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg shadow-orange-500/30">
-            1
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+        <!-- Defense Calculator Steps -->
+        <div>
+          <div class="flex items-center gap-3 mb-8">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-orange-400">Defense Calculator</h3>
           </div>
-          <div
-            class="bg-zinc-900 rounded-2xl p-8 pt-12 border border-zinc-800 hover:border-orange-500/30 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3">Enter Card Stats</h3>
-            <p class="text-zinc-400">
-              Fill in your card's base defense, class, type, leader skill, links, passive abilities and other
-              informations.
-            </p>
+
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center text-sm font-bold text-orange-400 shrink-0">
+                1</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Enter Card Stats</h4>
+                <p class="text-sm text-zinc-400">Fill in base defense, leader skill, links, and passive abilities.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center text-sm font-bold text-orange-400 shrink-0">
+                2</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Configure Defense Options</h4>
+                <p class="text-sm text-zinc-400">Add guard status and damage reduction percentage.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 bg-orange-500/20 rounded-full flex items-center justify-center text-sm font-bold text-orange-400 shrink-0">
+                3</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">View Results & Chart</h4>
+                <p class="text-sm text-zinc-400">See total defense and damage taken against various bosses.</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Step 2 -->
-        <div class="relative md:mt-8">
-          <div
-            class="absolute -left-4 -top-4 w-12 h-12 bg-gradient-to-br from-amber-500 to-yellow-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg shadow-amber-500/30">
-            2
+        <!-- Boss Damage Calculator Steps -->
+        <div>
+          <div class="flex items-center gap-3 mb-8">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-red-500 to-rose-600 rounded-xl flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-red-400">Boss Damage Calculator</h3>
           </div>
-          <div
-            class="bg-zinc-900 rounded-2xl p-8 pt-12 border border-zinc-800 hover:border-orange-500/30 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3">Calculate</h3>
-            <p class="text-zinc-400">
-              Submit the form and instantly get your total defense, damage reduction, and guard status.
-            </p>
-          </div>
-        </div>
 
-        <!-- Step 3 -->
-        <div class="relative md:mt-16">
-          <div
-            class="absolute -left-4 -top-4 w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-xl font-bold shadow-lg shadow-yellow-500/30">
-            3
-          </div>
-          <div
-            class="bg-zinc-900 rounded-2xl p-8 pt-12 border border-zinc-800 hover:border-orange-500/30 transition-colors">
-            <h3 class="text-xl font-semibold text-white mb-3">Visualize</h3>
-            <p class="text-zinc-400">
-              View the interactive chart showing damage taken against various boss attacks.
-            </p>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center text-sm font-bold text-red-400 shrink-0">
+                1</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Enter Boss Attack Stats</h4>
+                <p class="text-sm text-zinc-400">Input base attack damage and super attack damage values.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center text-sm font-bold text-red-400 shrink-0">
+                2</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Configure Attack Buffs</h4>
+                <p class="text-sm text-zinc-400">Add buffs from special attacks, turns, and hits received.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div
+                class="w-8 h-8 bg-red-500/20 rounded-full flex items-center justify-center text-sm font-bold text-red-400 shrink-0">
+                3</div>
+              <div>
+                <h4 class="font-semibold text-white mb-1">Get Max Damage Output</h4>
+                <p class="text-sm text-zinc-400">See total normal and super attack damage the boss can deal.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -233,25 +309,35 @@
 
     <div class="relative z-10 max-w-4xl mx-auto text-center">
       <h2 class="text-4xl md:text-5xl font-bold mb-6">
-        Ready to Analyze Your Cards?
+        Want to calculate?
       </h2>
       <p class="text-xl text-orange-100/80 mb-10 max-w-2xl mx-auto">
-        Start calculating your card's defensive capabilities and dominate every battle.
+        Choose your calculator and start optimizing your Dokkan Battle strategy.
       </p>
-      <a routerLink="/calculation"
-        class="inline-flex items-center gap-3 bg-white text-orange-900 font-semibold px-10 py-5 rounded-xl hover:bg-orange-50 transition-all duration-300 shadow-2xl hover:shadow-orange-500/20">
-        <span>Open Calculator</span>
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
-      </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a routerLink="/calculation"
+          class="inline-flex items-center justify-center gap-3 bg-white text-orange-900 font-semibold px-8 py-4 rounded-xl hover:bg-orange-50 transition-all duration-300 shadow-xl">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>Defense Calculator</span>
+        </a>
+        <a routerLink="/calcul-boss-damage"
+          class="inline-flex items-center justify-center gap-3 bg-red-500 hover:bg-red-400 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 shadow-xl">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          <span>Boss Damage Calculator</span>
+        </a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-zinc-950 border-t border-zinc-800 py-8 px-6">
     <div class="max-w-6xl mx-auto text-center text-zinc-500 text-sm">
-      <p>Dokkan Chart — Defense Calculator for Dokkan Battle</p>
+      <p>Dokkan Chart — Calculator Suite for Dokkan Battle</p>
     </div>
   </footer>
 </div>
