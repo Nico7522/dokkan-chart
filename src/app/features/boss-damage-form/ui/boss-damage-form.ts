@@ -7,6 +7,7 @@ import {
   INITIAL_BOSS_DAMAGE,
 } from '../model/boss-damage.model';
 import { validateBossDamage } from '../model/validators';
+import { calculBossDamage } from '../lib/calcul-boss-damage';
 
 @Component({
   selector: 'app-boss-damage-form',
@@ -27,6 +28,7 @@ export class BossDamageForm {
 
   protected onSubmit(event: Event): void {
     event.preventDefault();
-    console.log(this.bossDamageFormModel());
+    const total = calculBossDamage(this.bossDamageFormModel());
+    this.bossDamage.emit(total);
   }
 }

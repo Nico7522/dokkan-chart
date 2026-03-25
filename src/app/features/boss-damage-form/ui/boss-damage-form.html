@@ -5,14 +5,27 @@
         </legend>
 
         <div class="flex flex-col gap-1.5">
-            <label for="base-defense" class="text-sm font-medium text-zinc-300">
-                Base Defense
+            <label for="base-attack-damage" class="text-sm font-medium text-zinc-300">
+                Base attack damage (%)
             </label>
-            <input id="base-defense" type="number" class="form-input" placeholder="0"
-                [formField]="bossDamageForm.baseAttack" />
-            @if (bossDamageForm.baseAttack().touched() && bossDamageForm.baseAttack().invalid()) {
+            <input id="base-attack-damage" type="number" class="form-input" placeholder="0"
+                [formField]="bossDamageForm.baseAttackDamage" />
+            @if (bossDamageForm.baseAttackDamage().touched() && bossDamageForm.baseAttackDamage().invalid()) {
             <p class="text-xs text-red-400" role="alert">
-                {{ bossDamageForm.baseAttack().errors()[0].message }}
+                {{ bossDamageForm.baseAttackDamage().errors()[0].message }}
+            </p>
+            }
+        </div>
+
+        <div class="flex flex-col gap-1.5">
+            <label for="super-attack-damage" class="text-sm font-medium text-zinc-300">
+                Super attack damage (%)
+            </label>
+            <input id="super-attack-damage" type="number" class="form-input" placeholder="0"
+                [formField]="bossDamageForm.superAttackDamage" />
+            @if (bossDamageForm.superAttackDamage().touched() && bossDamageForm.superAttackDamage().invalid()) {
+            <p class="text-xs text-red-400" role="alert">
+                {{ bossDamageForm.superAttackDamage().errors()[0].message }}
             </p>
             }
         </div>
