@@ -17,12 +17,12 @@ import { calculBossDamage } from '../lib/calcul-boss-damage';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BossDamageForm {
-  protected bossDamage = output<BossDamageResult>();
-  protected bossDamageFormModel = signal<BossDamageFormModel>({
+  protected readonly bossDamage = output<BossDamageResult>();
+  private bossDamageFormModel = signal<BossDamageFormModel>({
     ...INITIAL_BOSS_DAMAGE,
   });
 
-  protected bossDamageForm = form(this.bossDamageFormModel, (schemaPath) => {
+  protected readonly bossDamageForm = form(this.bossDamageFormModel, (schemaPath) => {
     validateBossDamage(schemaPath);
   });
 

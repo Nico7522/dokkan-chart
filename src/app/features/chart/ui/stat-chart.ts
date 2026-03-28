@@ -18,8 +18,8 @@ export class StatChart {
   private readonly startingBossList = bossList.slice(0, 4);
   protected readonly bossListSelect = bossList.slice(4);
   showInput = signal(false);
-  readonly cardStat = input.required<CardStatInfo>();
-  readonly baseBarChartData = computed<ChartData<'bar'>>(() => {
+  protected readonly cardStat = input.required<CardStatInfo>();
+  protected readonly baseBarChartData = computed<ChartData<'bar'>>(() => {
     const values = this.startingBossList.map((b) =>
       calculDamageTaken(
         this.cardStat(),
@@ -40,7 +40,8 @@ export class StatChart {
       ],
     };
   });
-  protected barChartData = linkedSignal(() => this.baseBarChartData());
+  protected readonly barChartData = linkedSignal(() => this.baseBarChartData());
+
   protected readonly chart = viewChild<BaseChartDirective<'bar'>>('chart');
 
   private labelToImageMap = new Map(
@@ -58,7 +59,6 @@ export class StatChart {
       const minWidth = count * 100; // 100px par barre
       const canvas = chart.canvas;
       const parent = canvas.parentElement;
-
       if (parent && parent.offsetWidth < minWidth) {
         canvas.style.width = minWidth + 'px';
       } else {
@@ -151,7 +151,7 @@ export class StatChart {
 
   protected readonly barChartPlugins = [this.imageLabelsPlugin];
 
-  pushOne(bossListIndex: number) {
+  protected pushOne(bossListIndex: number) {
     const boss = bossList[bossListIndex];
     this.addBossToChart(
       boss.label,
@@ -166,7 +166,7 @@ export class StatChart {
     this.showInput.set(true);
   }
 
-  onBossDamageReceived(bossForm: BossFormModel) {
+  protected onBossDamageReceived(bossForm: BossFormModel) {
     this.addBossToChart(
       bossForm.bossName,
       bossForm.bossClass,

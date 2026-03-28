@@ -24,8 +24,8 @@ export class CalculationPageComponent {
   private chartContainer = viewChild.required('chart', { read: ViewContainerRef });
   private componentRef: ComponentRef<StatChart> | null = null;
 
-  protected cardStat = signal<CardStatInfo | null>(null);
-  protected calculatedCardStats = computed(() => this.cardStat());
+  protected readonly cardStat = signal<CardStatInfo | null>(null);
+  protected readonly calculatedCardStats = computed(() => this.cardStat());
 
   protected handleStats(stats: CardStatInfo) {
     this.cardStat.set(stats);

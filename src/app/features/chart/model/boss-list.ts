@@ -110,6 +110,36 @@ export const bossList: Boss[] = [
     type: 'TEQ',
     damage: 5600000,
   },
+  {
+    img: '/card_1023982.png',
+    label: 'Majin Vegeta',
+    class: 'Extreme',
+    type: 'TEQ',
+    damage: 14000000,
+  },
+  {
+    img: '/card_1028792.png',
+    label: 'Goku SSJ3 (Full buff with crit)',
+    class: 'Super',
+    type: 'AGL',
+    damage: 22500000,
+    ignoreDefense: 0.3,
+  },
+  {
+    img: '/card_1028792.png',
+    label: 'Goku SSJ3 (Full buff no crit)',
+    class: 'Super',
+    type: 'AGL',
+    damage: 15000000,
+  },
+  {
+    img: '/card_1028792.png',
+    label: 'Goku SSJ3 (No buff with crit)',
+    class: 'Super',
+    type: 'AGL',
+    damage: 15000000,
+    ignoreDefense: 0.3,
+  },
 ];
 
 interface Boss {

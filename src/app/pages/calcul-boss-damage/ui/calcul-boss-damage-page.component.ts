@@ -11,7 +11,7 @@ import { BossDamageForm, BossDamageResult } from '../../../features/boss-damage-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalculBossDamagePageComponent {
-  protected calculatedResult = signal<BossDamageResult | null>(null);
+  protected readonly calculatedResult = signal<BossDamageResult | null>(null);
 
   protected handleResult(result: BossDamageResult): void {
     this.calculatedResult.set(result);
